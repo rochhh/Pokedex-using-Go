@@ -1,11 +1,25 @@
 package main
 
 import (
-	// "fmt"
+	"fmt"
+	"pokedexcli/internal/pokeapi"
+	"log"
 )
+
+
 
 func main() {
 
-	startRepl()
+	pokeapiClient := pokeapi.NewClient()
+
+	resp , err := pokeapiClient.ListLocationAreas()
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(resp)
+
+	// startRepl()
 
 }
